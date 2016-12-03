@@ -1,4 +1,4 @@
-package com.github.dsciencebk.dto;
+package com.github.dsciencebk.dao;
 
 import javax.persistence.*;
 
@@ -6,38 +6,32 @@ import javax.persistence.*;
  * Created by anna on 03.12.2016.
  */
 @Entity
-@Table(name = "car", schema = "work", catalog = "")
-public class CarEntity {
-    private int carId;
-    private String carNumber;
-    private String carName;
-
+@Table(name = "car", schema = "work")
+public class CarDAO {
     @Id
     @Column(name = "car_id")
+    private int carId;
+    @Column(name = "car_number")
+    private String carNumber;
+    @Column(name = "car_name")
+    private String carName;
+
+
     public int getCarId() {
         return carId;
     }
-
     public void setCarId(int carId) {
         this.carId = carId;
     }
-
-    @Basic
-    @Column(name = "car_number")
     public String getCarNumber() {
         return carNumber;
     }
-
     public void setCarNumber(String carNumber) {
         this.carNumber = carNumber;
     }
-
-    @Basic
-    @Column(name = "car_name")
     public String getCarName() {
         return carName;
     }
-
     public void setCarName(String carName) {
         this.carName = carName;
     }
@@ -47,15 +41,14 @@ public class CarEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CarEntity carEntity = (CarEntity) o;
+        CarDAO carDAO = (CarDAO) o;
 
-        if (carId != carEntity.carId) return false;
-        if (carNumber != null ? !carNumber.equals(carEntity.carNumber) : carEntity.carNumber != null) return false;
-        if (carName != null ? !carName.equals(carEntity.carName) : carEntity.carName != null) return false;
+        if (carId != carDAO.carId) return false;
+        if (carNumber != null ? !carNumber.equals(carDAO.carNumber) : carDAO.carNumber != null) return false;
+        if (carName != null ? !carName.equals(carDAO.carName) : carDAO.carName != null) return false;
 
         return true;
     }
-
     @Override
     public int hashCode() {
         int result = carId;

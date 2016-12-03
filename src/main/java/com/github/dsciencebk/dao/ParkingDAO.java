@@ -3,64 +3,53 @@ package com.github.dsciencebk.dao;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-/**
- * Created by anna on 03.12.2016.
- */
 @Entity
-@Table(name = "parking", schema = "work", catalog = "")
-public class ParkingEntity {
-    private int parkingId;
-    private Integer carId;
-    private Integer parkingNumber;
-    private Timestamp parkingStartTime;
-    private Timestamp parkingEndName;
-
+@Table(name = "parking", schema = "work")
+public class ParkingDAO {
     @Id
     @Column(name = "parking_id")
+    private int parkingId;
+    @Column(name = "car_id")
+    private Integer carId;
+    @Column(name = "parking_number")
+    private Integer parkingNumber;
+    @Column(name = "parking_start_time")
+    private Timestamp parkingStartTime;
+    @Column(name = "parking_end_time")
+    private Timestamp parkingEndName;
+
+
     public int getParkingId() {
         return parkingId;
     }
-
     public void setParkingId(int parkingId) {
         this.parkingId = parkingId;
     }
 
-    @Basic
-    @Column(name = "car_id")
     public Integer getCarId() {
         return carId;
     }
-
     public void setCarId(Integer carId) {
         this.carId = carId;
     }
 
-    @Basic
-    @Column(name = "parking_number")
     public Integer getParkingNumber() {
         return parkingNumber;
     }
-
     public void setParkingNumber(Integer parkingNumber) {
         this.parkingNumber = parkingNumber;
     }
 
-    @Basic
-    @Column(name = "parking_start_time")
     public Timestamp getParkingStartTime() {
         return parkingStartTime;
     }
-
     public void setParkingStartTime(Timestamp parkingStartTime) {
         this.parkingStartTime = parkingStartTime;
     }
 
-    @Basic
-    @Column(name = "parking_end_name")
     public Timestamp getParkingEndName() {
         return parkingEndName;
     }
-
     public void setParkingEndName(Timestamp parkingEndName) {
         this.parkingEndName = parkingEndName;
     }
@@ -70,7 +59,7 @@ public class ParkingEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ParkingEntity that = (ParkingEntity) o;
+        ParkingDAO that = (ParkingDAO) o;
 
         if (parkingId != that.parkingId) return false;
         if (carId != null ? !carId.equals(that.carId) : that.carId != null) return false;
