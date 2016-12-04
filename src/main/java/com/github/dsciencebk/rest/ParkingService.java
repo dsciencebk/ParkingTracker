@@ -61,4 +61,11 @@ public class ParkingService {
     }
 
 
+    @GET
+    @Path("/countFreePlaces")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response countFreePlaces(){
+        return Response.ok().entity(parkingDAO.gerFrePlacesCount()).build();
+    }
+
 }

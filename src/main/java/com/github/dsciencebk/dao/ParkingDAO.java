@@ -40,6 +40,9 @@ public class ParkingDAO {
         return namedQuery.getResultList();
     }
 
-
+    public int gerFrePlacesCount(){
+        TypedQuery namedQuery = em.createNamedQuery("Parking.gerFrePlacesCount", Parking.class);
+        return namedQuery.getFirstResult();
+    }
 
 }

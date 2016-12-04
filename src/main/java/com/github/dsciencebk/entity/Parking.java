@@ -8,7 +8,13 @@ import java.util.Date;
 
 @Entity
 @Table(name = "parking")
-@NamedQuery(name = "Parking.getAll",query = "SELECT p FROM Parking p")
+@NamedQueries({
+        @NamedQuery(name = "Parking.getAll",query = "SELECT p FROM Parking p"),
+        @NamedQuery(name = "Parking.gerFrePlacesCount",query = "SELECT count(p) FROM Parking p WHERE isCarInParking = true")
+})
+
+
+
 public class Parking {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "parking_id", nullable = false)
