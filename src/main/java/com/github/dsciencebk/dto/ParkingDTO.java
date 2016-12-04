@@ -17,6 +17,8 @@ public class ParkingDTO {
     private String carNumber;
     @XmlElement(name = "carName")
     private String carName;
+    @XmlElement (name = "isCarInParking",defaultValue = "true")
+    Boolean isCarInParking;
 
     public ParkingDTO() {}
     public ParkingDTO(int parkingId, Date parkingStartTime, String carNumber, String carName) {

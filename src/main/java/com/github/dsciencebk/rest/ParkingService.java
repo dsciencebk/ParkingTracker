@@ -38,21 +38,17 @@ public class ParkingService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response add(ParkingDTO parkingDTO){
-
         parkingDTO.setParkingStartTime(new Date());
         parkingDAO.add(parkingDTO.fromDTO());
-
-        return Response.ok().entity(parkingDTO).build();
+        return Response.ok().build();
     }
 
     @PUT
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, ParkingDTO parkingDTO){
-        parkingDTO.setParkingId(id);
         parkingDAO.update(parkingDTO.fromDTO());
-        return Response.ok().entity(parkingDTO).build();
+        return Response.ok().build();
     }
 
     @DELETE

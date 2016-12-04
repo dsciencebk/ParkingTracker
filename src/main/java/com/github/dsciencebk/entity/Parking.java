@@ -3,6 +3,7 @@ package com.github.dsciencebk.entity;
 import com.github.dsciencebk.dto.ParkingDTO;
 
 import javax.persistence.*;
+import javax.ws.rs.Consumes;
 import java.util.Date;
 
 @Entity
@@ -10,14 +11,16 @@ import java.util.Date;
 @NamedQuery(name = "Parking.getAll",query = "SELECT p FROM Parking p")
 public class Parking {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "parking_id")
+    @Column(name = "parking_id", nullable = false)
     private int parkingId;
-    @Column(name = "parking_start_time")
+    @Column(name = "parking_start_time", nullable = false)
     private Date parkingStartTime;
-    @Column(name = "car_number")
+    @Column(name = "car_number", nullable = false)
     private String carNumber;
-    @Column(name = "car_name")
+    @Column(name = "car_name", nullable = false)
     private String carName;
+    @Column (name = "car_in_parking", nullable = false)
+    private Boolean isCarInParking;
 
 
 
@@ -52,6 +55,13 @@ public class Parking {
     }
     public void setCarName(String carName) {
         this.carName = carName;
+    }
+    public Boolean getCarInParking() {
+        return isCarInParking;
+    }
+
+    public void setCarInParking(Boolean carInParking) {
+        isCarInParking = carInParking;
     }
 
     public ParkingDTO toDTO(){

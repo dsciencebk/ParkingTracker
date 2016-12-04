@@ -20,8 +20,8 @@ public class ParkingDAO {
 
 
     public void add(Parking parking){
+            parking.setCarInParking(true);
             em.persist(parking);
-
     }
     public void delete(int id){
         em.remove(getParkingUnit(id));
