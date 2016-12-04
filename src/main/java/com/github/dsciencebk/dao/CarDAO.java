@@ -1,12 +1,12 @@
 package com.github.dsciencebk.dao;
 
+import com.github.dsciencebk.dto.CarDTO;
+
 import javax.persistence.*;
 
-/**
- * Created by anna on 03.12.2016.
- */
 @Entity
-@Table(name = "car", schema = "work")
+@NamedQuery(name = "Car.getAll",query = "SELECT c FROM CarDAO c")
+@Table(name = "car")
 public class CarDAO {
     @Id
     @Column(name = "car_id")
@@ -15,6 +15,15 @@ public class CarDAO {
     private String carNumber;
     @Column(name = "car_name")
     private String carName;
+
+    public CarDAO(int carId, String carNumber, String carName) {
+        this.carId = carId;
+        this.carNumber = carNumber;
+        this.carName = carName;
+    }
+
+    public CarDAO() {
+    }
 
 
     public int getCarId() {
@@ -55,5 +64,9 @@ public class CarDAO {
         result = 31 * result + (carNumber != null ? carNumber.hashCode() : 0);
         result = 31 * result + (carName != null ? carName.hashCode() : 0);
         return result;
+    }
+
+    public CarDTO toDTO(){
+        return new CarDTO(this.getCarId(),this.getCarNumber(),this.getCarName());
     }
 }

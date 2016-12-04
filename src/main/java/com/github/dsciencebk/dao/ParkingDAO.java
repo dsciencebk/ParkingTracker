@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "parking", schema = "work")
+@Table(name = "parking")
 public class ParkingDAO {
     @Id
     @Column(name = "parking_id")
@@ -18,6 +18,9 @@ public class ParkingDAO {
     @Column(name = "parking_end_time")
     private Timestamp parkingEndName;
 
+    public ParkingDAO(int parkingId) {
+
+    }
 
     public int getParkingId() {
         return parkingId;
