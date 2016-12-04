@@ -7,9 +7,8 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="Entities" />
-          <factory-entry name="MySqlDS" />
           <factory-entry name="MySqlDSS" value="dd2e383b-9e21-42be-b250-ad8b7074d4d5" />
-          <factory-entry name="VOLKOVA" value="2997de18-c5fc-4a93-91c9-99582cde1436" />
+          <factory-entry name="VOLKOVA" value="dd2e383b-9e21-42be-b250-ad8b7074d4d5" />
           <factory-entry name="noname-a.xml@0" value="224ad082-acaa-4b44-afdd-6db809e4d71b" />
           <factory-entry name="sample" value="224ad082-acaa-4b44-afdd-6db809e4d71b" />
         </datasource-mapping>
